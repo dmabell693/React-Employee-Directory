@@ -4,15 +4,15 @@ import "./style.css";
 
 function TableHead() {
     return (
-        <thead>
+        <thead className="thead-dark">
             <tr>
-                <th>Id</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Department</th>
-                <th>Role</th>
-                <th>Email</th>
-                <th>Office Phone</th>
+                <th scope="col">Id</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Department</th>
+                <th scope="col">Role</th>
+                <th scope="col">Email</th>
+                <th scope="col">Office Phone</th>
             </tr>
         </thead>
     )

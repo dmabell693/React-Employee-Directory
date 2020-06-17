@@ -3,7 +3,9 @@ import "./style.css";
 
 function Table(props) {
     return (
-        <table className="striped bordered hover">{props.children}</table>
+        <div className="container">
+            <table className="table table-striped bordered hover">{props.children}</table>
+        </div>
     )
 }
 
