@@ -36,6 +36,12 @@ class App extends React.Component {
     this.setState({employees: repArr});
   }
 
+  sortFirstName = () => {
+    console.log("hey dickhead");
+    let sortFirstNameArr = this.state.employees.sort((a, b) => (a.first_name > b.first_name) ? 1 : -1);
+    this.setState({employees: sortFirstNameArr});
+  }
+
   render() {
     return (
       <Wrapper 
@@ -43,6 +49,7 @@ class App extends React.Component {
       filterSales={() => this.filterSales()}
       filterRepresentative={() => this.filterRepresentative()}
       resetForm={() => this.resetForm()}
+      sortFirstName={() => this.sortFirstName()}
       >
         <Table>
           <TableHead />
