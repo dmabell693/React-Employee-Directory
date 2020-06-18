@@ -37,9 +37,33 @@ class App extends React.Component {
   }
 
   sortFirstName = () => {
-    console.log("hey dickhead");
     let sortFirstNameArr = this.state.employees.sort((a, b) => (a.first_name > b.first_name) ? 1 : -1);
     this.setState({employees: sortFirstNameArr});
+  }
+
+  sortLastName = () => {
+    let sortLastNameArr = this.state.employees.sort((a, b) => (a.last_name > b.last_name) ? 1 : -1);
+    this.setState({employees: sortLastNameArr});
+  }
+
+  sortDepartment = () => {
+    let sortDepartmentArr = this.state.employees.sort((a, b) => (a.department > b.department) ? 1 : -1);
+    this.setState({employees: sortDepartmentArr});
+  }
+
+  sortRole = () => {
+    let sortRoleArr = this.state.employees.sort((a, b) => (a.role > b.role) ? 1 : -1);
+    this.setState({employees: sortRoleArr});
+  }
+
+  sortEmail = () => {
+    let sortEmailArr = this.state.employees.sort((a, b) => (a.email > b.email) ? 1 : -1);
+    this.setState({employees: sortEmailArr});
+  }
+
+  sortOfficeExt = () => {
+    let sortOfficeExtArr = this.state.employees.sort((a, b) => (a.office_ext - b.office_ext) ? 1 : -1);
+    this.setState({employees: sortOfficeExtArr});
   }
 
   render() {
@@ -50,6 +74,11 @@ class App extends React.Component {
       filterRepresentative={() => this.filterRepresentative()}
       resetForm={() => this.resetForm()}
       sortFirstName={() => this.sortFirstName()}
+      sortLastName={() => this.sortLastName()}
+      sortDepartment={() => this.sortDepartment()}
+      sortRole={() => this.sortRole()}
+      sortEmail={() => this.sortEmail()}
+      sortOfficeExt={() => this.sortOfficeExt()}
       >
         <Table>
           <TableHead />
@@ -63,7 +92,7 @@ class App extends React.Component {
                 department={employee.department}
                 role={employee.role}
                 email={employee.email}
-                office_phone={employee.office_phone}
+                office_ext={employee.office_ext}
               />
             ))}
           </TableBody>

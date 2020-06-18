@@ -14,6 +14,11 @@ function Wrapper(props) {
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <button className="dropdown-item" onClick={props.sortFirstName}>First Name</button>
+                        <button className="dropdown-item" onClick={props.sortLastName}>Last Name</button>
+                        <button className="dropdown-item" onClick={props.sortDepartment}>Department</button>
+                        <button className="dropdown-item" onClick={props.sortRole}>Role</button>
+                        <button className="dropdown-item" onClick={props.sortEmail}>Email</button>
+                        <button className="dropdown-item" onClick={props.sortOfficeExt}>Office Ext</button>
                     </div>
                 </div>
 
