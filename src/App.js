@@ -7,23 +7,42 @@ import TableRow from "./components/TableRow";
 import employees from "./employees.json";
 import './App.css';
 
+
+const defaultState = {
+  employees: employees
+}
+
 class App extends React.Component {
 
-  state = {
-    employees: employees
+  state = defaultState;
+
+  // defaultState = {employees};
+
+  resetForm = () => {
+    this.setState(defaultState);
   }
 
+  // filterDepartment = department => {
+  //   let deptArr = this.state.employees.filter(employee => employee.department === department);
+  //   this.setState({employees: deptArr});
+  // }
   filterSales = () => {
     let salesArr = this.state.employees.filter(employee => employee.department === "Sales");
     this.setState({employees: salesArr});
   }
   
+  filterRepresentative = () => {
+    let repArr = this.state.employees.filter(employee => employee.role === "Representative");
+    this.setState({employees: repArr});
+  }
 
   render() {
     return (
       <Wrapper 
+      // filterDepartment={() => this.filterDepartment(this.props.criteria)}
       filterSales={() => this.filterSales()}
-
+      filterRepresentative={() => this.filterRepresentative()}
+      resetForm={() => this.resetForm()}
       >
         <Table>
           <TableHead />
