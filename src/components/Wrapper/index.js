@@ -31,7 +31,7 @@ function Wrapper(props) {
                         Find by Department
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <button className="dropdown-item" onClick={props.filterManagement}>Management</button>
+                        <button className="dropdown-item" onClick={props.filterManagement} name="Management">Management</button>
                         <button className="dropdown-item" onClick={props.filterSales}>Sales</button>
                         <button className="dropdown-item" onClick={props.filterAccounting}>Accounting</button>
                         <button className="dropdown-item" onClick={props.filterSupplierRel}>Supplier Relations</button>
@@ -50,7 +50,7 @@ function Wrapper(props) {
                         Find by Role
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <button className="dropdown-item" onClick={props.filterRegMan}>Regional Manager
+                        <button className="dropdown-item" id={props.role} onClick={props.filterRegMan}>Regional Manager
                         </button>
                         <button className="dropdown-item" onClick={props.filterSalesLead}>Sales Lead
                         </button>

@@ -22,12 +22,14 @@ class App extends React.Component {
     this.setState(defaultState);
   }
 
-  // filterDepartment = department => {
+  //filter by department functions
+
+  // filterDepartment = event => {
+  //   let department = event.target.name;
   //   let deptArr = this.state.employees.filter(employee => employee.department === department);
   //   this.setState({employees: deptArr});
   // }
 
-  //filter by department functions
   filterManagement = () => {
     let manArr = this.state.employees.filter(employee => employee.department === "Management");
     this.setState({employees: manArr});
@@ -159,7 +161,7 @@ class App extends React.Component {
   render() {
     return (
       <Wrapper 
-      // filterDepartment={() => this.filterDepartment(this.props.criteria)}
+      filterDepartment={() => this.filterDepartment()}
       //Departments
       filterManagement={() => this.filterManagement()}
       filterSales={() => this.filterSales()}
@@ -191,6 +193,8 @@ class App extends React.Component {
       sortRole={() => this.sortRole()}
       sortEmail={() => this.sortEmail()}
       sortOfficeExt={() => this.sortOfficeExt()}
+
+      regionalman= "Regional Manger"
       >
         <Table>
           <TableHead />
