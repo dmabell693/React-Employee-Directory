@@ -22,112 +22,27 @@ class App extends React.Component {
     this.setState(defaultState);
   }
 
-  //filter by department functions
-
-  // filterDepartment = event => {
-  //   let department = event.target.name;
-  //   let deptArr = this.state.employees.filter(employee => employee.department === department);
-  //   this.setState({employees: deptArr});
-  // }
-
-  filterManagement = () => {
-    let manArr = this.state.employees.filter(employee => employee.department === "Management");
-    this.setState({employees: manArr});
-  }
-
-  filterSales = () => {
-    let salesArr = this.state.employees.filter(employee => employee.department === "Sales");
-    this.setState({employees: salesArr});
-  }
-
-  filterAccounting = () => {
-    let accArr = this.state.employees.filter(employee => employee.department === "Accounting");
-    this.setState({employees: accArr});
-  }
-
-  filterSupplierRel = () => {
-    let suppRelArr = this.state.employees.filter(employee => employee.department === "Supplier Relations");
-    this.setState({employees: suppRelArr});
-  }
-
-  filterQualityAss = () => {
-    let qualityAss = this.state.employees.filter(employee => employee.department === "Quality Assurance");
-    this.setState({employees: qualityAss});
-  }
-
-  filterReception = () => {
-    let recArr = this.state.employees.filter(employee => employee.department === "Reception");
-    this.setState({employees: recArr});
-  }
-
-  filterCustRel = () => {
-    let custRelArr = this.state.employees.filter(employee => employee.department === "Customer Relations");
-    this.setState({employees: custRelArr});
-  }
-
-  filterIntern = () => {
-    let internArr = this.state.employees.filter(employee => employee.department === "Intern");
-    this.setState({employees: internArr});
-  }
-
-  filterWarehouse = () => {
-    let warehouseArr = this.state.employees.filter(employee => employee.department === "Warehouse");
-    this.setState({employees: warehouseArr});
-  }
-
-  filterHR = () => {
-    let hrArr = this.state.employees.filter(employee => employee.department === "Human Resources");
-    this.setState({employees: hrArr});
+  //filter by department
+  filterDepartment = event => {
+    const department = event.target.name;
+    console.log(department);
+    const deptArr = this.state.employees.filter(employee => employee.department === department);
+    this.setState({employees: deptArr});
   }
   
-  //filter by role functions
-  filterRegMan = () => {
-    let regManArr = this.state.employees.filter(employee => employee.role === "Regional Manager");
-    this.setState({employees: regManArr});
+  //filter by role
+  filterRole = event => {
+    const role = event.target.name;
+    let roleArr = this.state.employees.filter(employee => employee.role === role);
+    this.setState({employees: roleArr});
   }
-
-  filterSalesLead = () => {
-    let salesLeadArr = this.state.employees.filter(employee => employee.role === "Sales Lead");
-    this.setState({employees: salesLeadArr});
-  }
-
-  filterSalesperson = () => {
-    let salespersonArr = this.state.employees.filter(employee => employee.role === "Salesperson");
-    this.setState({employees: salespersonArr});
-  }
-
-  filterLeadAccountant = () => {
-    let leadAccountantArr = this.state.employees.filter(employee => employee.role === "Lead Accountant");
-    this.setState({employees: leadAccountantArr});
-  }
-
-  filterAccountant = () => {
-    let accountantArr = this.state.employees.filter(employee => employee.role === "Accountant");
-    this.setState({employees: accountantArr});
-  }
-
-  filterRepresentative = () => {
-    let repArr = this.state.employees.filter(employee => employee.role === "Representative");
-    this.setState({employees: repArr});
-  }
-
-  filterThatsRight = () => {
-    let thatsRightArr = this.state.employees.filter(employee => employee.role === "That's Right");
-    this.setState({employees: thatsRightArr});
-  }
-
-  filterReceptionist = () => {
-    let receptionistArr = this.state.employees.filter(employee => employee.role === "Receptionist");
-    this.setState({employees: receptionistArr});
-  }
-
-  filterWarehouseManager = () => {
-    let wareManArr = this.state.employees.filter(employee => employee.role === "Warehouse Manager");
-    this.setState({employees: wareManArr});
-  }
-
 
   //sort functions
+  // sortCriteria = event => {
+  //   const criteria = event.target.name;
+  // }
+
+
   sortFirstName = () => {
     let sortFirstNameArr = this.state.employees.sort((a, b) => (a.first_name > b.first_name) ? 1 : -1);
     this.setState({employees: sortFirstNameArr});
@@ -153,37 +68,25 @@ class App extends React.Component {
     this.setState({employees: sortEmailArr});
   }
 
-  sortOfficeExt = () => {
-    let sortOfficeExtArr = this.state.employees.sort((a, b) => (a.office_ext - b.office_ext) ? 1 : -1);
-    this.setState({employees: sortOfficeExtArr});
-  }
+  // sortOfficeExt = () => {
+  //   let sortOfficeExtArr = this.state.employees.sort((a, b) => (a.office_ext - b.office_ext) ? 1 : -1);
+  //   this.setState({employees: sortOfficeExtArr});
+  // }
+
+  // handleClick = event => {
+  //   const eventData = event.target.id;
+  //   console.log(eventData);
+  //   return eventData;
+  // }
 
   render() {
     return (
       <Wrapper 
-      filterDepartment={() => this.filterDepartment()}
-      //Departments
-      filterManagement={() => this.filterManagement()}
-      filterSales={() => this.filterSales()}
-      filterAccounting={() => this.filterAccounting()}
-      filterSupplierRel={() => this.filterSupplierRel()}
-      filterQualityAss={() => this.filterQualityAss()}
-      filterReception={() => this.filterReception()}
-      filterCustRel={() => this.filterCustRel()}
-      filterIntern={() => this.filterIntern()}
-      filterWarehouse={() => this.filterWarehouse()}
-      filterHR={() => this.filterHR()}
+      // handleClick={this.handleClick}
+      filterDepartment={this.filterDepartment}
 
       //Roles
-      filterRegMan={() => this.filterRegMan()}
-      filterSalesLead={() => this.filterSalesLead()}
-      filterSalesperson={() => this.filterSalesperson()}
-      filterLeadAccountant={() => this.filterLeadAccountant()}
-      filterAccountant={() => this.filterAccountant()}
-      filterRepresentative={() => this.filterRepresentative()}
-      filterThatsRight={() => this.filterThatsRight()}
-      filterReceptionist={() => this.filterReceptionist()}
-      filterWarehouseManager={() => this.filterWarehouseManager()}
+      filterRole={this.filterRole}
 
       //Sort
       resetForm={() => this.resetForm()}
