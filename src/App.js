@@ -9,11 +9,12 @@ import ButtonRow from "./components/ButtonRow";
 import employees from "./employees.json";
 import './App.css';
 
-
+//store default state so that each filter uses the entire employees object
 const defaultState = { employees };
 
 class App extends React.Component {
 
+  //setting this.state with defaultState
   state = defaultState;
 
   //reset table to default state ordered by id
