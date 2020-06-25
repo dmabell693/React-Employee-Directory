@@ -4,7 +4,7 @@ import "./style.css";
 function ButtonRow(props) {
 
     return (
-        <div className="row">
+        <div className="row justify-content-center">
             <div className="dropdown">
                 <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Sort

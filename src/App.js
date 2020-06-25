@@ -23,15 +23,15 @@ class App extends React.Component {
   }
 
   //filter by department
-  filterDepartment = event => {
-    const department = event.target.name;
+  filterDepartment = e => {
+    const department = e.target.name;
     const deptArr = defaultState.employees.filter(employee => employee.department === department);
     this.setState({ employees: deptArr });
   }
 
   //filter by role
-  filterRole = event => {
-    const role = event.target.name;
+  filterRole = e => {
+    const role = e.target.name;
     let roleArr = defaultState.employees.filter(employee => employee.role === role);
     this.setState({ employees: roleArr });
   }
