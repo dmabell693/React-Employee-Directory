@@ -4,101 +4,91 @@ import Table from "./components/Table";
 import TableHead from "./components/TableHead";
 import TableBody from "./components/TableBody";
 import TableRow from "./components/TableRow";
+import Header from "./components/Header";
+import ButtonRow from "./components/ButtonRow";
 import employees from "./employees.json";
 import './App.css';
 
 
-const defaultState = {
-  employees: employees
-}
+const defaultState = { employees };
 
 class App extends React.Component {
 
   state = defaultState;
 
-  // defaultState = {employees};
-
-  resetForm = () => {
+  resetTable = () => {
     this.setState(defaultState);
   }
 
   //filter by department
   filterDepartment = event => {
     const department = event.target.name;
-    console.log(department);
     const deptArr = this.state.employees.filter(employee => employee.department === department);
-    this.setState({employees: deptArr});
+    this.setState({ employees: deptArr });
   }
-  
+
   //filter by role
   filterRole = event => {
     const role = event.target.name;
     let roleArr = this.state.employees.filter(employee => employee.role === role);
-    this.setState({employees: roleArr});
+    this.setState({ employees: roleArr });
   }
 
   //sort functions
-  // sortCriteria = event => {
-  //   const criteria = event.target.name;
-  // }
-
+  sortId = () => {
+    let sortIdArr = this.state.employees.sort((a, b) => (a.id > b.id) ? 1 : -1);
+    this.setState({ employees: sortIdArr });
+  }
 
   sortFirstName = () => {
     let sortFirstNameArr = this.state.employees.sort((a, b) => (a.first_name > b.first_name) ? 1 : -1);
-    this.setState({employees: sortFirstNameArr});
+    this.setState({ employees: sortFirstNameArr });
   }
 
   sortLastName = () => {
     let sortLastNameArr = this.state.employees.sort((a, b) => (a.last_name > b.last_name) ? 1 : -1);
-    this.setState({employees: sortLastNameArr});
+    this.setState({ employees: sortLastNameArr });
   }
 
   sortDepartment = () => {
     let sortDepartmentArr = this.state.employees.sort((a, b) => (a.department > b.department) ? 1 : -1);
-    this.setState({employees: sortDepartmentArr});
+    this.setState({ employees: sortDepartmentArr });
   }
 
   sortRole = () => {
     let sortRoleArr = this.state.employees.sort((a, b) => (a.role > b.role) ? 1 : -1);
-    this.setState({employees: sortRoleArr});
+    this.setState({ employees: sortRoleArr });
   }
 
   sortEmail = () => {
     let sortEmailArr = this.state.employees.sort((a, b) => (a.email > b.email) ? 1 : -1);
-    this.setState({employees: sortEmailArr});
+    this.setState({ employees: sortEmailArr });
   }
-
-  // sortOfficeExt = () => {
-  //   let sortOfficeExtArr = this.state.employees.sort((a, b) => (a.office_ext - b.office_ext) ? 1 : -1);
-  //   this.setState({employees: sortOfficeExtArr});
-  // }
-
-  // handleClick = event => {
-  //   const eventData = event.target.id;
-  //   console.log(eventData);
-  //   return eventData;
-  // }
 
   render() {
     return (
-      <Wrapper 
-      // handleClick={this.handleClick}
-      filterDepartment={this.filterDepartment}
+      <Wrapper>
+        <Header>
+          Employee Directory
+        </Header>
+        <ButtonRow
+          // handleClick={this.handleClick}
+          filterDepartment={this.filterDepartment}
 
-      //Roles
-      filterRole={this.filterRole}
+          //Roles
+          filterRole={this.filterRole}
 
-      //Sort
-      resetForm={() => this.resetForm()}
-      sortFirstName={() => this.sortFirstName()}
-      sortLastName={() => this.sortLastName()}
-      sortDepartment={() => this.sortDepartment()}
-      sortRole={() => this.sortRole()}
-      sortEmail={() => this.sortEmail()}
-      sortOfficeExt={() => this.sortOfficeExt()}
+          //Sort
+          sortId={this.sortId}
+          sortFirstName={this.sortFirstName}
+          sortLastName={this.sortLastName}
+          sortDepartment={this.sortDepartment}
+          sortRole={this.sortRole}
+          sortEmail={this.sortEmail}
 
-      regionalman= "Regional Manger"
-      >
+          //Reset form
+          resetTable={this.resetTable}
+        />
         <Table>
           <TableHead />
           <TableBody>
@@ -119,7 +109,6 @@ class App extends React.Component {
       </Wrapper>
     )
   }
-
 }
 
 
