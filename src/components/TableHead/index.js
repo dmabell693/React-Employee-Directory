@@ -12,7 +12,6 @@ function TableHead() {
                 <th scope="col">Department</th>
                 <th scope="col">Role</th>
                 <th scope="col">Email</th>
-                <th scope="col">Office Ext</th>
             </tr>
         </thead>
     )

@@ -13,7 +13,6 @@ function TableRow(props) {
             <td>{props.department}</td>
             <td>{props.role}</td>
             <td>{props.email}</td>
-            <td>{props.office_ext}</td>
         </tr>
     )
 }

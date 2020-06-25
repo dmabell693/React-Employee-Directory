@@ -5,8 +5,7 @@
         "last_name": "Scott",
         "department": "Management",
         "role": "Regional Manager",
-        "email": "michaelscott@dundermifflin.com",
-        "office_ext": "*1"
+        "email": "michaelscott@dundermifflin.com"
     },
     {
         "id": 2,
@@ -14,8 +13,7 @@
         "last_name": "Halpert",
         "department": "Sales",
         "role": "Sales Lead",
-        "email": "jimhalpert@dundermifflin.com",
-        "office_ext": "*2"
+        "email": "jimhalpert@dundermifflin.com"
     },
     {
         "id": 3,
@@ -23,8 +21,7 @@
         "last_name": "Schrute",
         "department": "Sales",
         "role": "Salesperson",
-        "email": "dwightschrute@dundermifflin.com",
-        "office_ext": "*3"
+        "email": "dwightschrute@dundermifflin.com"
     },
     {
         "id": 4,
@@ -32,8 +29,7 @@
         "last_name": "Vance",
         "department": "Sales",
         "role": "Salesperson",
-        "email": "phyllisvance@dundermifflin.com",
-        "office_ext": "*4"
+        "email": "phyllisvance@dundermifflin.com"
     },
     {
         "id": 5,
@@ -41,8 +37,7 @@
         "last_name": "Hudson",
         "department": "Sales",
         "role": "Salesperson",
-        "email": "stanleyhudson@dundermifflin.com",
-        "office_ext": "*5"
+        "email": "stanleyhudson@dundermifflin.com"
     },
     {
         "id": 6,
@@ -50,8 +45,7 @@
         "last_name": "Bernard",
         "department": "Sales",
         "role": "Salesperson",
-        "email": "andybernard@dundermifflin.com",
-        "office_ext": "*6"
+        "email": "andybernard@dundermifflin.com"
     },
     {
         "id": 7,
@@ -59,8 +53,7 @@
         "last_name": "Halpert",
         "department": "Sales",
         "role": "Salesperson",
-        "email": "pamhalpert@dundermifflin.com",
-        "office_ext": "*7"
+        "email": "pamhalpert@dundermifflin.com"
     },
     {
         "id": 8,
@@ -68,8 +61,7 @@
         "last_name": "Martin",
         "department": "Accounting",
         "role": "Lead Accountant",
-        "email": "angelamartin@dundermifflin.com",
-        "office_ext": "*8"
+        "email": "angelamartin@dundermifflin.com"
     },
     {
         "id": 9,
@@ -77,8 +69,7 @@
         "last_name": "Martinez",
         "department": "Accounting",
         "role": "Accountant",
-        "email": "oscarmartinez@dundermifflin.com",
-        "office_ext": "*9"
+        "email": "oscarmartinez@dundermifflin.com"
     },
     {
         "id": 10,
@@ -86,8 +77,7 @@
         "last_name": "Malone",
         "department": "Accounting",
         "role": "Accountant",
-        "email": "kevinmalone@dundermifflin.com",
-        "office_ext": "*10"
+        "email": "kevinmalone@dundermifflin.com"
     },
     {
         "id": 11,
@@ -95,8 +85,7 @@
         "last_name": "Palmer",
         "department": "Supplier Relations",
         "role": "Representative",
-        "email": "meredithpalmer@dundermifflin.com",
-        "office_ext": "*11"
+        "email": "meredithpalmer@dundermifflin.com"
     },
     {
         "id": 12,
@@ -104,8 +93,7 @@
         "last_name": "Bratton",
         "department": "Quality Assurance",
         "role": "That's Right",
-        "email": "creedbratton@dundermifflin.com",
-        "office_ext": "*12"
+        "email": "creedbratton@dundermifflin.com"
     },
     {
         "id": 13,
@@ -113,8 +101,7 @@
         "last_name": "Hannon",
         "department": "Reception",
         "role": "Receptionist",
-        "email": "erinhannon@dundermifflin.com",
-        "office_ext": "*13"
+        "email": "erinhannon@dundermifflin.com"
     },
     {
         "id": 14,
@@ -122,8 +109,7 @@
         "last_name": "Kapoor",
         "department": "Customer Relations",
         "role": "Representative",
-        "email": "kellykapoor@dundermifflin.com",
-        "office_ext": "*14"
+        "email": "kellykapoor@dundermifflin.com"
     },
     {
         "id": 15,
@@ -131,8 +117,7 @@
         "last_name": "Howard",
         "department": "Intern",
         "role": "Intern",
-        "email": "ryanhoward@dundermifflin.com",
-        "office_ext": "*15"
+        "email": "ryanhoward@dundermifflin.com"
     },
     {
         "id": 16,
@@ -140,8 +125,7 @@
         "last_name": "Philbin",
         "department": "Warehouse",
         "role": "Warehouse Manager",
-        "email": "darrylphilbin@dundermifflin.com",
-        "office_ext": "*16"
+        "email": "darrylphilbin@dundermifflin.com"
     },
     {
         "id": 17,
@@ -149,7 +133,6 @@
         "last_name": "Flenderson",
         "department": "Human Resources",
         "role": "Representative",
-        "email": "tobyflenderson@dundermifflin.com",
-        "office_ext": "*17"
+        "email": "tobyflenderson@dundermifflin.com"
     }
 ]

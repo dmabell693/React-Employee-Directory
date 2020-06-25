@@ -16,8 +16,10 @@ class App extends React.Component {
 
   state = defaultState;
 
+  //reset table to default state ordered by id
   resetTable = () => {
-    this.setState(defaultState);
+    let resetArr = defaultState.employees.sort((a, b) => (a.id > b.id) ? 1 : -1);
+    this.setState({ employees: resetArr });
   }
 
   //filter by department
