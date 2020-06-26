@@ -12,6 +12,17 @@ import './App.css';
 //store default state so that each filter uses the entire employees object
 const defaultState = { employees };
 
+//grab key properties from employees
+const employeesKeys = Object.keys(defaultState.employees[0]);
+
+//create an array of all departments
+const departments = defaultState.employees.map(employee => employee.department);
+const departmentsReduced = departments.filter((item, index) => departments.indexOf(item) === index);
+
+//create an array of all roles
+const roles = defaultState.employees.map(employee => employee.role);
+const rolesReduced = roles.filter((item, index) => roles.indexOf(item) === index);
+
 class App extends React.Component {
 
   //setting this.state with defaultState

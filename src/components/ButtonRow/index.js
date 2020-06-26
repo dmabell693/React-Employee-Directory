@@ -68,7 +68,7 @@ function ButtonRow(props) {
 
             <button className="btn btn-secondary dropdown" type="button" id="resetTable" onClick={props.resetTable}>
                 Reset Table
-        </button>
+            </button>
         </div>
     )
 }
