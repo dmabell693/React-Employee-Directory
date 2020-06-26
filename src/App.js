@@ -117,7 +117,7 @@ class App extends React.Component {
       foundEmployees = defaultState.employees.filter(employee => employee.first_name === this.state.firstName);
       this.setState({ employees: foundEmployees })
     } else {
-      alert(`${this.state.employeeName} is not in this database.`)
+      alert(`"${this.state.firstName}" is not in this database.`)
     }
     this.setState({ firstName: "" });
   }
@@ -129,7 +129,7 @@ class App extends React.Component {
       foundEmployees = defaultState.employees.filter(employee => employee.last_name === this.state.lastName);
       this.setState({ employees: foundEmployees })
     } else {
-      alert(`${this.state.employeeName} is not in this database.`)
+      alert(`"${this.state.lastName}" is not in this database.`)
     }
     this.setState({ lastName: "" });
   }
