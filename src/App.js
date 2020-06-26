@@ -4,8 +4,12 @@ import Table from "./components/Table";
 import TableHead from "./components/TableHead";
 import TableBody from "./components/TableBody";
 import TableRow from "./components/TableRow";
+import TableRowHeader from "./components/TableRowHeader";
 import Header from "./components/Header";
 import ButtonRow from "./components/ButtonRow";
+import Dropdown from "./components/Dropdown";
+import DropdownItemButton from "./components/DropdownItemButton";
+import ResetButton from "./components/ResetButton";
 import employees from "./employees.json";
 import './App.css';
 
@@ -13,25 +17,53 @@ import './App.css';
 const defaultState = { employees };
 
 //grab key properties from employees
-const employeesKeys = Object.keys(defaultState.employees[0]);
+let employeesKeys = Object.keys(defaultState.employees[0]);
+employeesKeys = employeesKeys
+  .join(",")
+  .replace(/_/gi, " ")
+  .split(",")
+  .map(s => s.substring(0, 1)
+    .toUpperCase() + s.substring(1));
 
 //create an array of all departments
-const departments = defaultState.employees.map(employee => employee.department);
-const departmentsReduced = departments.filter((item, index) => departments.indexOf(item) === index);
+let departments = defaultState.employees.map(employee => employee.department);
+departments = departments.filter((item, index) => departments.indexOf(item) === index);
 
 //create an array of all roles
-const roles = defaultState.employees.map(employee => employee.role);
-const rolesReduced = roles.filter((item, index) => roles.indexOf(item) === index);
+let roles = defaultState.employees.map(employee => employee.role);
+roles = roles.filter((item, index) => roles.indexOf(item) === index);
 
 class App extends React.Component {
 
   //setting this.state with defaultState
   state = defaultState;
 
-  //reset table to default state ordered by id
-  resetTable = () => {
-    let resetArr = defaultState.employees.sort((a, b) => (a.id > b.id) ? 1 : -1);
-    this.setState({ employees: resetArr });
+  //sort functions
+  sortCriteria = e => {
+    const criteria = e.target.name;
+    console.log(criteria);
+    let sortArr;
+    switch (criteria) {
+      case "First name":
+        sortArr = this.state.employees.sort((a, b) => (a.first_name > b.first_name) ? 1 : -1);
+        break;
+      case "Last name":
+        sortArr = this.state.employees.sort((a, b) => (a.last_name > b.last_name) ? 1 : -1);
+        break;
+      case "Department":
+        sortArr = this.state.employees.sort((a, b) => (a.department > b.department) ? 1 : -1);
+        break;
+      case "Role":
+        sortArr = this.state.employees.sort((a, b) => (a.role > b.role) ? 1 : -1);
+        break;
+      case "Email":
+        sortArr = this.state.employees.sort((a, b) => (a.email > b.email) ? 1 : -1);
+        break;
+      default:
+        sortArr = this.state.employees.sort((a, b) => (a.id > b.id) ? 1 : -1);
+        break;
+    }
+    this.setState({ employees: sortArr });
   }
 
   //filter by department
@@ -48,35 +80,10 @@ class App extends React.Component {
     this.setState({ employees: roleArr });
   }
 
-  //sort functions
-  sortId = () => {
-    let sortIdArr = this.state.employees.sort((a, b) => (a.id > b.id) ? 1 : -1);
-    this.setState({ employees: sortIdArr });
-  }
-
-  sortFirstName = () => {
-    let sortFirstNameArr = this.state.employees.sort((a, b) => (a.first_name > b.first_name) ? 1 : -1);
-    this.setState({ employees: sortFirstNameArr });
-  }
-
-  sortLastName = () => {
-    let sortLastNameArr = this.state.employees.sort((a, b) => (a.last_name > b.last_name) ? 1 : -1);
-    this.setState({ employees: sortLastNameArr });
-  }
-
-  sortDepartment = () => {
-    let sortDepartmentArr = this.state.employees.sort((a, b) => (a.department > b.department) ? 1 : -1);
-    this.setState({ employees: sortDepartmentArr });
-  }
-
-  sortRole = () => {
-    let sortRoleArr = this.state.employees.sort((a, b) => (a.role > b.role) ? 1 : -1);
-    this.setState({ employees: sortRoleArr });
-  }
-
-  sortEmail = () => {
-    let sortEmailArr = this.state.employees.sort((a, b) => (a.email > b.email) ? 1 : -1);
-    this.setState({ employees: sortEmailArr });
+  //reset table to default state ordered by id
+  resetTable = () => {
+    let resetArr = defaultState.employees.sort((a, b) => (a.id > b.id) ? 1 : -1);
+    this.setState({ employees: resetArr });
   }
 
   render() {
@@ -85,26 +92,47 @@ class App extends React.Component {
         <Header>
           Employee Directory
         </Header>
-        <ButtonRow
-          // handleClick={this.handleClick}
-          filterDepartment={this.filterDepartment}
-
-          //Roles
-          filterRole={this.filterRole}
-
-          //Sort
-          sortId={this.sortId}
-          sortFirstName={this.sortFirstName}
-          sortLastName={this.sortLastName}
-          sortDepartment={this.sortDepartment}
-          sortRole={this.sortRole}
-          sortEmail={this.sortEmail}
-
-          //Reset form
-          resetTable={this.resetTable}
-        />
+        <ButtonRow>
+          <Dropdown type="Sort">
+            {employeesKeys.map(key => (
+              <DropdownItemButton
+                key={key}
+                name={key}
+                function={this.sortCriteria}
+              />
+            ))}
+          </Dropdown>
+          <Dropdown type="Filter by Department">
+            {departments.map(department => (
+              <DropdownItemButton
+                key={department}
+                name={department}
+                function={this.filterDepartment}
+              />
+            ))}
+          </Dropdown>
+          <Dropdown type="Filter by Role">
+            {roles.map(role => (
+              <DropdownItemButton
+                key={role}
+                name={role}
+                function={this.filterRole}
+              />
+            ))}
+          </Dropdown>
+          <ResetButton resetTable={this.resetTable}>
+            Reset Table
+          </ResetButton>
+        </ButtonRow>
         <Table>
-          <TableHead />
+          <TableHead>
+            {employeesKeys.map(key => (
+              <TableRowHeader
+              key={key}
+              name={key}
+              />
+            ))}
+          </TableHead>
           <TableBody>
             {this.state.employees.map(employee => (
               <TableRow
@@ -124,6 +152,5 @@ class App extends React.Component {
     )
   }
 }
-
 
 export default App;
