@@ -97,7 +97,6 @@ class App extends React.Component {
     this.setState({
       firstName: value
     });
-    console.log(this.state.firstName);
   }
 
   lastInputChange = e => {
@@ -106,7 +105,6 @@ class App extends React.Component {
     this.setState({
       lastName: value
     });
-    console.log(this.state.lastName);
   }
 
   searchFirstName = event => {
@@ -116,7 +114,6 @@ class App extends React.Component {
       return;
     }
     let foundEmployees;
-    console.log(this.state.firstName);
     if (defaultState.employees.map(employee => employee.first_name).includes(this.state.firstName)) {
       foundEmployees = defaultState.employees.filter(employee => employee.first_name === this.state.firstName);
       this.setState({ employees: foundEmployees })
@@ -129,8 +126,6 @@ class App extends React.Component {
   searchLastName = event => {
     event.preventDefault();
     let foundEmployees;
-    console.log(event.target);
-    console.log(this.state.lastName);
     if (defaultState.employees.map(employee => employee.last_name).includes(this.state.lastName)) {
       foundEmployees = defaultState.employees.filter(employee => employee.last_name === this.state.lastName);
       this.setState({ employees: foundEmployees })
