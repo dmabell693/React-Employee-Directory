@@ -109,8 +109,12 @@ class App extends React.Component {
     console.log(this.state.lastName);
   }
 
-  searchFirstName = e => {
-    e.preventDefault();
+  searchFirstName = event => {
+    event.preventDefault();
+    if ((this.state.firstName) === "") {
+      this.searchLastName(event);
+      return;
+    }
     let foundEmployees;
     console.log(this.state.firstName);
     if (defaultState.employees.map(employee => employee.first_name).includes(this.state.firstName)) {
@@ -122,10 +126,10 @@ class App extends React.Component {
     this.setState({ firstName: "" });
   }
     
-  searchLastName = e => {
-    e.preventDefault();
+  searchLastName = event => {
+    event.preventDefault();
     let foundEmployees;
-    console.log(e.target);
+    console.log(event.target);
     console.log(this.state.lastName);
     if (defaultState.employees.map(employee => employee.last_name).includes(this.state.lastName)) {
       foundEmployees = defaultState.employees.filter(employee => employee.last_name === this.state.lastName);
