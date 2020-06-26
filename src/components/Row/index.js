@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function ButtonRow(props) {
+function Row(props) {
 
     return (
         <div className="row justify-content-center">
@@ -10,4 +10,4 @@ function ButtonRow(props) {
     )
 }
 
-export default ButtonRow;
+export default Row;

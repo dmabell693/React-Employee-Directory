@@ -6,10 +6,11 @@ import TableBody from "./components/TableBody";
 import TableRow from "./components/TableRow";
 import TableRowHeader from "./components/TableRowHeader";
 import Header from "./components/Header";
-import ButtonRow from "./components/ButtonRow";
+import Row from "./components/Row";
 import Dropdown from "./components/Dropdown";
 import DropdownItemButton from "./components/DropdownItemButton";
 import ResetButton from "./components/ResetButton";
+import SearchForm from "./components/SearchForm";
 import employees from "./employees.json";
 import './App.css';
 
@@ -33,15 +34,19 @@ departments = departments.filter((item, index) => departments.indexOf(item) === 
 let roles = defaultState.employees.map(employee => employee.role);
 roles = roles.filter((item, index) => roles.indexOf(item) === index);
 
+
 class App extends React.Component {
 
   //setting this.state with defaultState
-  state = defaultState;
+  state = {
+    employees: employees,
+    firstName: "",
+    lastName: ""
+  };
 
   //sort functions
   sortCriteria = e => {
     const criteria = e.target.name;
-    console.log(criteria);
     let sortArr;
     switch (criteria) {
       case "First name":
@@ -86,13 +91,58 @@ class App extends React.Component {
     this.setState({ employees: resetArr });
   }
 
+  firstInputChange = e => {
+    let value = e.target.value;
+
+    this.setState({
+      firstName: value
+    });
+    console.log(this.state.firstName);
+  }
+
+  lastInputChange = e => {
+    let value = e.target.value;
+
+    this.setState({
+      lastName: value
+    });
+    console.log(this.state.lastName);
+  }
+
+  searchFirstName = e => {
+    e.preventDefault();
+    let foundEmployees;
+    console.log(this.state.firstName);
+    if (defaultState.employees.map(employee => employee.first_name).includes(this.state.firstName)) {
+      foundEmployees = defaultState.employees.filter(employee => employee.first_name === this.state.firstName);
+      this.setState({ employees: foundEmployees })
+    } else {
+      alert(`${this.state.employeeName} is not in this database.`)
+    }    
+    this.setState({ firstName: "" });
+  }
+    
+  searchLastName = e => {
+    e.preventDefault();
+    let foundEmployees;
+    console.log(e.target);
+    console.log(this.state.lastName);
+    if (defaultState.employees.map(employee => employee.last_name).includes(this.state.lastName)) {
+      foundEmployees = defaultState.employees.filter(employee => employee.last_name === this.state.lastName);
+      this.setState({ employees: foundEmployees })
+    } else {
+      alert(`${this.state.employeeName} is not in this database.`)
+    }    
+    this.setState({ lastName: "" });
+  }
+
   render() {
     return (
       <Wrapper>
         <Header>
           Employee Directory
         </Header>
-        <ButtonRow>
+        <Row>
           <Dropdown type="Sort">
             {employeesKeys.map(key => (
               <DropdownItemButton
@@ -123,7 +173,17 @@ class App extends React.Component {
           <ResetButton resetTable={this.resetTable}>
             Reset Table
           </ResetButton>
-        </ButtonRow>
+        </Row>
+        <Row>
+          <SearchForm 
+          firstName={this.state.firstName}
+          firstInputChange={this.firstInputChange}
+          searchFirstName={this.searchFirstName}
+          lastName={this.state.lastName}
+          lastInputChange={this.lastInputChange}
+          searchLastName={this.searchLastName}
+          />
+        </Row>
         <Table>
           <TableHead>
             {employeesKeys.map(key => (

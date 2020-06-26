@@ -134,5 +134,13 @@
         "department": "Human Resources",
         "role": "Representative",
         "email": "tobyflenderson@dundermifflin.com"
+    },
+    {
+        "id": 18,
+        "first_name": "Michael",
+        "last_name": "Scarn",
+        "department": "Secret Agency",
+        "role": "Secret Agent",
+        "email": "scarned@dundermifflin.com"
     }
 ]
