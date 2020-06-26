@@ -23,7 +23,7 @@ function SearchForm(props) {
                     type="text"
                     placeholder="Search by Last name"
                 />
-                <button type="submit" className="submit-button rounded-right" onClick={props.searchLastName}>Submit</button>
+                <button type="submit" className="submit-button rounded-right" id="right-button" onClick={props.searchLastName}>Submit</button>
             </form>
         </div>)
 }

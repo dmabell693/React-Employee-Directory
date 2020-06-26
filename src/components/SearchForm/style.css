@@ -12,3 +12,7 @@ input, button {
 .submit-button:hover {
     opacity: 80%;
 }
+
+#right-button {
+    margin: 0;
+}
