@@ -4,11 +4,12 @@
 }
 
 .btn:hover {
-    opacity: 80%;
+    background-color: #FEFFFF;
+    color: #17252a;
 }
 
 .btn:active {
-    opacity: 80%;
+    color: #17252a;
 }
 
 .btn-secondary {

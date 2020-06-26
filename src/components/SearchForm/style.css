@@ -10,7 +10,8 @@ input, button {
 }
 
 .submit-button:hover {
-    opacity: 80%;
+    background-color: #FEFFFF;
+    color: #17252a;
 }
 
 #right-button {
