@@ -1,3 +1,14 @@
+input, button {
+    box-shadow: none;
+    border-style: none;
+}
+
 .submit-button {
     margin-right: 1rem;
+    background-color: #17252A;
+    color: #FEFFFF;
+}
+
+.submit-button:hover {
+    opacity: 80%;
 }

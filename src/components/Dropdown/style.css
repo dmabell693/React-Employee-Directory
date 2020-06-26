@@ -1,0 +1,16 @@
+.btn {
+    background-color: #17252a;
+    border: none;
+}
+
+.btn:hover {
+    opacity: 80%;
+}
+
+.btn:active {
+    opacity: 80%;
+}
+
+.btn-secondary {
+    border-color: none;
+}

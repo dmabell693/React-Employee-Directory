@@ -24,7 +24,7 @@ employeesKeys = employeesKeys
   .replace(/_/gi, " ")
   .split(",")
   .map(s => s.substring(0, 1)
-  .toUpperCase() + s.substring(1));
+    .toUpperCase() + s.substring(1));
 
 //create an array of all departments and roles to use for generating the items in the dropdown buttons
 let departments = defaultState.employees.map(employee => employee.department);
@@ -118,10 +118,10 @@ class App extends React.Component {
       this.setState({ employees: foundEmployees })
     } else {
       alert(`${this.state.employeeName} is not in this database.`)
-    }    
+    }
     this.setState({ firstName: "" });
   }
-    
+
   searchLastName = event => {
     event.preventDefault();
     let foundEmployees;
@@ -130,83 +130,85 @@ class App extends React.Component {
       this.setState({ employees: foundEmployees })
     } else {
       alert(`${this.state.employeeName} is not in this database.`)
-    }    
+    }
     this.setState({ lastName: "" });
   }
 
   render() {
     return (
-      <Wrapper>
+      <>
         <Header>
           Employee Directory
         </Header>
-        <Row>
-          <Dropdown type="Sort">
-            {employeesKeys.map(key => (
-              <DropdownItemButton
-                key={key}
-                name={key}
-                function={this.sortCriteria}
-              />
-            ))}
-          </Dropdown>
-          <Dropdown type="Filter by Department">
-            {departments.map(department => (
-              <DropdownItemButton
-                key={department}
-                name={department}
-                function={this.filterDepartment}
-              />
-            ))}
-          </Dropdown>
-          <Dropdown type="Filter by Role">
-            {roles.map(role => (
-              <DropdownItemButton
-                key={role}
-                name={role}
-                function={this.filterRole}
-              />
-            ))}
-          </Dropdown>
-          <ResetButton resetTable={this.resetTable}>
-            Reset Table
+        <Wrapper>
+          <Row>
+            <Dropdown type="Sort">
+              {employeesKeys.map(key => (
+                <DropdownItemButton
+                  key={key}
+                  name={key}
+                  function={this.sortCriteria}
+                />
+              ))}
+            </Dropdown>
+            <Dropdown type="Filter by Department">
+              {departments.map(department => (
+                <DropdownItemButton
+                  key={department}
+                  name={department}
+                  function={this.filterDepartment}
+                />
+              ))}
+            </Dropdown>
+            <Dropdown type="Filter by Role">
+              {roles.map(role => (
+                <DropdownItemButton
+                  key={role}
+                  name={role}
+                  function={this.filterRole}
+                />
+              ))}
+            </Dropdown>
+            <ResetButton resetTable={this.resetTable}>
+              Reset Table
           </ResetButton>
-        </Row>
-        <Row>
-          <SearchForm 
-          firstName={this.state.firstName}
-          firstInputChange={this.firstInputChange}
-          searchFirstName={this.searchFirstName}
-          lastName={this.state.lastName}
-          lastInputChange={this.lastInputChange}
-          searchLastName={this.searchLastName}
-          />
-        </Row>
-        <Table>
-          <TableHead>
-            {employeesKeys.map(key => (
-              <TableRowHeader
-              key={key}
-              name={key}
-              />
-            ))}
-          </TableHead>
-          <TableBody>
-            {this.state.employees.map(employee => (
-              <TableRow
-                key={employee.id}
-                id={employee.id}
-                first_name={employee.first_name}
-                last_name={employee.last_name}
-                department={employee.department}
-                role={employee.role}
-                email={employee.email}
-                office_ext={employee.office_ext}
-              />
-            ))}
-          </TableBody>
-        </Table>
-      </Wrapper>
+          </Row>
+          <Row>
+            <SearchForm
+              firstName={this.state.firstName}
+              firstInputChange={this.firstInputChange}
+              searchFirstName={this.searchFirstName}
+              lastName={this.state.lastName}
+              lastInputChange={this.lastInputChange}
+              searchLastName={this.searchLastName}
+            />
+          </Row>
+          <Table>
+            <TableHead>
+              {employeesKeys.map(key => (
+                <TableRowHeader
+                  key={key}
+                  name={key}
+                />
+              ))}
+            </TableHead>
+            <TableBody>
+              {this.state.employees.map(employee => (
+                <TableRow
+                  key={employee.id}
+                  id={employee.id}
+                  first_name={employee.first_name}
+                  last_name={employee.last_name}
+                  department={employee.department}
+                  role={employee.role}
+                  email={employee.email}
+                  office_ext={employee.office_ext}
+                />
+              ))}
+            </TableBody>
+          </Table>
+        </Wrapper>
+      </>
     )
   }
 }

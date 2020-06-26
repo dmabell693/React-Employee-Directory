@@ -4,7 +4,7 @@ import "./style.css";
 
 function TableHead(props) {
     return (
-        <thead className="thead-dark">
+        <thead className="thead">
             <tr>
                 {props.children}
             </tr>
