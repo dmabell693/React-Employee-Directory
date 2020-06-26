@@ -17,34 +17,32 @@ import './App.css';
 //store default state so that each filter uses the entire employees object
 const defaultState = { employees };
 
-//grab key properties from employees
+//I used Object.keys so that in the event that employees.json changes the data will automatically update
 let employeesKeys = Object.keys(defaultState.employees[0]);
 employeesKeys = employeesKeys
   .join(",")
   .replace(/_/gi, " ")
   .split(",")
   .map(s => s.substring(0, 1)
-    .toUpperCase() + s.substring(1));
+  .toUpperCase() + s.substring(1));
 
-//create an array of all departments
+//create an array of all departments and roles to use for generating the items in the dropdown buttons
 let departments = defaultState.employees.map(employee => employee.department);
 departments = departments.filter((item, index) => departments.indexOf(item) === index);
 
-//create an array of all roles
 let roles = defaultState.employees.map(employee => employee.role);
 roles = roles.filter((item, index) => roles.indexOf(item) === index);
 
 
 class App extends React.Component {
 
-  //setting this.state with defaultState
   state = {
     employees: employees,
     firstName: "",
     lastName: ""
   };
 
-  //sort functions
+  //I used switch/case because I couldn't set the criteria (a.first_name, etc.) using the event target. This approach is something of a weakness because any changes to employeesKeys will have to be manually updated here. However, this is still preferrable to creating 6 individual functions and passing each prop to unique dropdown item buttons
   sortCriteria = e => {
     const criteria = e.target.name;
     let sortArr;
@@ -91,6 +89,7 @@ class App extends React.Component {
     this.setState({ employees: resetArr });
   }
 
+  //form logic. Because I have columns for both First name and Last name, I had to create two sets of functions to find employees using each name
   firstInputChange = e => {
     let value = e.target.value;
 

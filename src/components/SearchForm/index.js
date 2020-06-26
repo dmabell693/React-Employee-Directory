@@ -11,7 +11,7 @@ function SearchForm(props) {
                     name="firstName"
                     onChange={props.firstInputChange}
                     type="text"
-                    placeholder="Search by First Name"
+                    placeholder="Search by First name"
                 />
                 <button className="submit-button" onClick={props.searchFirstName}>Submit</button>
                 <input
@@ -19,7 +19,7 @@ function SearchForm(props) {
                     name="lastName"
                     onChange={props.lastInputChange}
                     type="text"
-                    placeholder="Search by Last Name"
+                    placeholder="Search by Last name"
                 />
                 <button type="submit" className="submit-button" onClick={props.searchLastName}>Submit</button>
             </form>

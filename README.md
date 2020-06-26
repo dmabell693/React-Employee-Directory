@@ -1,9 +1,12 @@
+# react-employee-directory
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
 ## About
 
-This project uses dummy data in JSON format to populate an employee table. Users can sort, filter, and search the table using the dropdown buttons and search forms. To visit the deployed site, click this link: [https://dmabell693.github.io/react-employee-directory/](https://dmabell693.github.io/react-employee-directory/).
+The react-employee-directory uses dummy data in JSON format to populate an employee table. Users can sort, filter, and search the table using the dropdown buttons and search forms. To visit the deployed site, click this link: [https://dmabell693.github.io/react-employee-directory/](https://dmabell693.github.io/react-employee-directory/).
 
 
 ## Available Scripts
